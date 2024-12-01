@@ -9,15 +9,34 @@ router.get("/", function (req, res) {
 
 //CRUD Opertion is start
 
-//Create
 //This type code is asyncronus is liya isme await and async ka rule setup kare
-router.get("/create", async function (req, res) {
-  const createduser = await userModel.create({
+
+/* Create the Db*/
+// router.get("/create", async function (req, res) {
+//   const createduser = await userModel.create({
+//     username: "Aman",
+//     age: 22,
+//     name: "Aman",
+//   });
+//   res.send(createduser);
+// });
+
+/* Find / reading  the Data*/
+// router.get("/allusers",async function (req, res) {
+//   //find all user
+//   let allusers = await userModel.find();
+
+//   //find one user
+//   let allusers = await userModel.findOne({username:"Aman"});
+//   res.send(allusers);
+// });
+
+// delete the data in db
+router.get("/delete", async function (req, res) {
+  let deleteuser = await userModel.findOneAndDelete({
     username: "Aman",
-    age: 22,
-    name: "Aman",
   });
-  res.send(createduser);
+  res.send(deleteuser);
 });
 
 module.exports = router;
